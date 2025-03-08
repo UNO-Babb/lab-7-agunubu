@@ -8,9 +8,26 @@ def isThreeOrFive(n):
   else:
     return False
 
+def getFactors(num):
+  """ Returns a list of all factors of a given integer"""
+  factors = [] 
+  for f in range(1, num // 2):
+    if num % f == 0:
+      factors.append(f)
+
+  return factors
+
 def isPrime(p):
   """Returns boolean (True/False) if the value given is prime."""
-
+  if p == 2:
+    return True
+  if isEven(p):
+    return False
+  
+  for div in range(3, p // 2, 2):
+    if p % div == 0:
+      return False
+    
   return True
 
 def isEven(n):
@@ -41,6 +58,12 @@ def fibonacciSequence(value):
 
   return nums
 
+def isPalindrome(n):
+  """"Check if the number is a palindrome"""
+  return str(n) == str(n)[::-1]
+
+
+
 #Test your new functions in this main
 def main():
   knownPrimes = [3, 7, 11, 13, 17]
@@ -53,6 +76,8 @@ def main():
   if isEven(num):
     print("%d is an even number" %(num))
 
+  if isPalindrome(num):
+    print("%d is a palindrome" %(num))
 
 if __name__ == '__main__':
     main()
